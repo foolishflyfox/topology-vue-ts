@@ -82,7 +82,7 @@ export default class Preview extends Vue {
   }
 
   onSizeOri() {
-    topology.open(this.data.data);
+    topology.open(this.data);
   }
 
   onBack() {
