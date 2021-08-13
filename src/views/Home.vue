@@ -23,7 +23,7 @@ import {
   defalutMaterials,
   defalutMaterialTabs,
   iconMenus,
-  userMenus,
+  userMenus
 } from './data';
 
 Vue.use(topology);
@@ -36,41 +36,43 @@ export default class Home extends Vue {
     license: {
       key: 'key',
       value: 'value',
-      version: 'version',
+      version: 'version'
     },
     logo: {
       img: 'http://topology.le5le.com/img/favicon.ico',
       url: 'http://topology.le5le.com',
       target: '_blank',
-      text: 'le5le',
+      text: 'le5le'
     },
     menus: iconMenus,
     loginUrl: 'https://account.le5le.com',
     signupUrl: 'https://account.le5le.com',
     userMenus: userMenus,
     materialTabs: defalutMaterialTabs,
+    // cdn 的方式并不稳定
+    // monaco: 'https://cdn.staticfile.org/monaco-editor/0.19.3/min',
     dataOptionsFn: (pen: any, key: string, value: string) => {
       const keys = ['aaa', 'bbb'];
       const values = [
         {
           value: 111,
-          label: '111',
+          label: '111'
         },
         {
           value: 222,
-          label: '222',
-        },
+          label: '222'
+        }
       ];
       return {
         keys,
         // value: 80,
-        values,
+        values
       };
     }
   };
 
   user: any = {
-    username: 'le5le',
+    username: 'le5le'
   };
 
   materials = {
@@ -78,17 +80,17 @@ export default class Home extends Vue {
     iconUrls: ['http://at.alicdn.com/t/font_1331132_g7tv7fmj6c9.css'],
     uploadUrl: '/api/file',
     uploadHeaders: {
-      Authorization: 'your token',
+      Authorization: 'your token'
     },
     uploadParams: {
-      mydata: 1,
-    },
+      mydata: 1
+    }
   };
 
   data: any = {
     websocket: '',
     mqttUrl: '',
-    component: !!this.$route.query.component,
+    component: !!this.$route.query.component
   };
 
   created() {
@@ -114,7 +116,7 @@ export default class Home extends Vue {
         name: '企业图形库',
         expand: false,
         show: true,
-        list: window.topologyTools,
+        list: window.topologyTools
       });
     }
     if (window.registerIot) {
@@ -123,7 +125,7 @@ export default class Home extends Vue {
     this.materials.system.push({
       iconUrl: '//at.alicdn.com/t/font_2366205_nnqrrnc9mta.css', // 替换成真实的地址
       show: true,
-      list: [], // 此处留空数组就好，会自动填充
+      list: [] // 此处留空数组就好，会自动填充
     });
   }
 
@@ -146,7 +148,7 @@ export default class Home extends Vue {
         // Do sth. For example:
         this.$router.push({
           path: '/',
-          query: { component: '1' },
+          query: { component: '1' }
         });
         break;
 
@@ -155,7 +157,7 @@ export default class Home extends Vue {
         // Do sth. For example:
         this.$router.push({
           path: '/',
-          query: { id: e.params.id, component: '1' },
+          query: { id: e.params.id, component: '1' }
         });
         break;
 
@@ -182,7 +184,7 @@ export default class Home extends Vue {
         (window as any).topologyData = (window as any).topology.data;
         this.$router.push({
           path: '/preview',
-          query: { id: 'xxx', r: '1' },
+          query: { id: 'xxx', r: '1' }
         });
         break;
 
