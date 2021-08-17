@@ -25,6 +25,7 @@ import {
   iconMenus,
   userMenus
 } from './data';
+import { register } from '../components/myShape';
 
 Vue.use(topology);
 
@@ -126,6 +127,26 @@ export default class Home extends Vue {
       iconUrl: '//at.alicdn.com/t/font_2366205_nnqrrnc9mta.css', // 替换成真实的地址
       show: true,
       list: [] // 此处留空数组就好，会自动填充
+    });
+    register();
+    // 注册后 push 到数组中
+    this.materials.system.push({
+      name: '自定义图形库',
+      expand: false,
+      show: true,
+      list: [
+        {
+          name: 'thermometer',
+          icon: 't-icon t-wenduji',
+          data: {
+            rect: {
+              width: 100,
+              height: 400
+            },
+            name: 'thermometer'
+          }
+        }
+      ]
     });
   }
 
