@@ -50,8 +50,10 @@ export default class Home extends Vue {
     signupUrl: 'https://account.le5le.com',
     userMenus: userMenus,
     materialTabs: defalutMaterialTabs,
-    // cdn 的方式并不稳定
-    // monaco: 'https://cdn.staticfile.org/monaco-editor/0.19.3/min',
+    // 若为 undefined 与不传时，使用默认的 cdn 显示
+    // monaco: undefined,
+    // 使用 public 下的 本地 monaco
+    monaco: '/assets/monaco-editor',
     dataOptionsFn: (pen: any, key: string, value: string) => {
       const keys = ['aaa', 'bbb'];
       const values = [
