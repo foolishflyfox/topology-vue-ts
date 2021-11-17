@@ -110,18 +110,43 @@ export default class Home extends Vue {
     } else {
     }
   }
-
+  group(arr: any[], key: string) {
+    var map = {},
+      dest = [];
+    for (var i = 0; i < arr.length; i++) {
+      var ai = arr[i];
+      if (!map[ai[key]]) {
+        dest.push({
+          key: ai[key],
+          data: [ai],
+        });
+        map[ai[key]] = ai;
+      } else {
+        for (var j = 0; j < dest.length; j++) {
+          var dj = dest[j];
+          if (dj.key == ai[key]) {
+            dj.data.push(ai);
+            break;
+          }
+        }
+      }
+    }
+    return dest;
+  }
   async registerBuiness() {
     if (window.registerTools) {
       window.registerTools();
     }
     if (window.topologyTools) {
-      this.materials.system.push({
-        name: '企业图形库',
-        expand: false,
-        show: true,
-        list: window.topologyTools,
-      });
+      let list = this.group(window.topologyTools, 'class');
+      this.materials.system.push(...list.map((el) => {
+        return {
+          name: el.key,
+          expand: false,
+          show: true,
+          list: el.data,
+        };
+      }));
     }
     if (window.registerIot) {
       window.registerIot(this.topologyConfigs.license);
@@ -152,7 +177,7 @@ export default class Home extends Vue {
       ],
     });
     // 图片引入
-    const res = await getSvgUrl('/img');   // 替换成实际上的 svg 存放地址
+    const res = await getSvgUrl('/img'); // 替换成实际上的 svg 存放地址
     const svgList = res.map((svg: any) => {
       return {
         image: svg,
