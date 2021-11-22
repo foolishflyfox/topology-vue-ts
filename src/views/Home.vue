@@ -151,19 +151,19 @@ export default class Home extends Vue {
         },
       ],
     });
-    // 图片引入
-    const res = await getSvgUrl('/img');   // 替换成实际上的 svg 存放地址
-    const svgList = res.map((svg: any) => {
-      return {
-        image: svg,
-      };
-    });
-    this.materials.system.push({
-      name: 'svg 图形库',
-      expand: false,
-      show: true,
-      list: svgList,
-    });
+    // 图片引入 TODO: 本地测试图片，仅仅用作本地测试
+    // const res = await getSvgUrl('/img');   // 替换成实际上的 svg 存放地址
+    // const svgList = res.map((svg: any) => {
+    //   return {
+    //     image: svg,
+    //   };
+    // });
+    // this.materials.system.push({
+    //   name: 'svg 图形库',
+    //   expand: false,
+    //   show: true,
+    //   list: svgList,
+    // });
   }
 
   onEvent(e: { name: string; params: any }) {
