@@ -139,14 +139,16 @@ export default class Home extends Vue {
     }
     if (window.topologyTools) {
       let list = this.group(window.topologyTools, 'class');
-      this.materials.system.push(...list.map((el) => {
-        return {
-          name: el.key,
-          expand: false,
-          show: true,
-          list: el.data,
-        };
-      }));
+      this.materials.system.push(
+        ...list.map((el) => {
+          return {
+            name: el.key,
+            expand: false,
+            show: true,
+            list: el.data,
+          };
+        })
+      );
     }
     if (window.registerIot) {
       window.registerIot(this.topologyConfigs.license);
@@ -176,6 +178,24 @@ export default class Home extends Vue {
         },
       ],
     });
+    // svg或者png图片资源
+    const images: any[] = await axios.get('/images');
+
+    this.materials.system.push(
+      ...images.data.map((item) => {
+        return {
+          name: item.name, // 目录名
+          list: item.list.map((ele: any) => {
+            return {
+              name: ele.name, // hover item 名
+              image: ele.url, // 预览图以及拖出来的效果图
+            };
+          }),
+          show: true,
+          expand: false,
+        };
+      })
+    );
     // 图片引入 TODO: 本地测试图片，仅仅用作本地测试
     // const res = await getSvgUrl('/img');   // 替换成实际上的 svg 存放地址
     // const svgList = res.map((svg: any) => {
