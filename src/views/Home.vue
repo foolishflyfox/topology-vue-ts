@@ -111,7 +111,7 @@ export default class Home extends Vue {
     }
   }
   group(arr: any[], key: string) {
-    var map = {},
+    var map: any = {},
       dest = [];
     for (var i = 0; i < arr.length; i++) {
       var ai = arr[i];
@@ -179,10 +179,10 @@ export default class Home extends Vue {
       ],
     });
     // svg或者png图片资源
-    const images: any[] = await axios.get('/images');
+    const images = await axios.get('/images');
 
     this.materials.system.push(
-      ...images.data.map((item) => {
+      ...images.data.map((item: any) => {
         return {
           name: item.name, // 目录名
           list: item.list.map((ele: any) => {
