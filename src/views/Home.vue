@@ -255,10 +255,6 @@ export default class Home extends Vue {
         // 在“我的图片”里面添加了一张新图片
         // this.addImageUrl(e.params);
         break;
-      case 'deleteImage':
-        // 在“我的图片”里面删除了一张图片
-        // this.deleteImage(e.params);
-        break;
       case 'preview':
         // 点击工具栏“预览”
 
@@ -268,6 +264,11 @@ export default class Home extends Vue {
           path: '/preview',
           query: { id: 'xxx', r: '1' },
         });
+        break;
+      case 'remove-user-component': // 删除用户组件
+      case 'remove-topology': // 删除图纸
+        break;
+      case 'remove-user-image': // 删除图片
         break;
 
       // ...
