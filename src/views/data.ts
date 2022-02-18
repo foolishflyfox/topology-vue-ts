@@ -23,6 +23,26 @@ export const defalutMaterials: any = [
       {
         name: 'square',
         icon: 't-icon t-rect',
+        id: 0,
+        data: {
+          text: '锁画布，点击弹窗',
+          rect: {
+            width: 100,
+            height: 100
+          },
+          name: 'square',
+          events: [
+            {
+              type: 0,
+              action: 7,
+              value: 'showDialog'
+            }
+          ]
+        }
+      },
+      {
+        name: 'square',
+        icon: 't-icon t-rect',
         id: 1,
         data: {
           text: '正方形',

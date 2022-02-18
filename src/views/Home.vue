@@ -8,6 +8,9 @@
       :data="data"
       @event="onEvent"
     />
+    <a-modal title="Title" v-model="visible">
+      <p>测试弹框</p>
+    </a-modal>
   </div>
 </template>
 
@@ -23,7 +26,7 @@ import {
   defalutMaterials,
   defalutMaterialTabs,
   iconMenus,
-  userMenus,
+  userMenus
 } from './data';
 import { register } from '../components/myShape';
 import axios from 'axios';
@@ -38,13 +41,13 @@ export default class Home extends Vue {
     license: {
       key: 'key',
       value: 'value',
-      version: 'version',
+      version: 'version'
     },
     logo: {
       img: 'http://topology.le5le.com/img/favicon.ico',
       url: 'http://topology.le5le.com',
       target: '_blank',
-      text: 'le5le',
+      text: 'le5le'
     },
     menus: iconMenus,
     loginUrl: 'https://account.le5le.com',
@@ -60,23 +63,23 @@ export default class Home extends Vue {
       const values = [
         {
           value: 111,
-          label: '111',
+          label: '111'
         },
         {
           value: 222,
-          label: '222',
-        },
+          label: '222'
+        }
       ];
       return {
         keys,
         // value: 80,
-        values,
+        values
       };
-    },
+    }
   };
 
   user: any = {
-    username: 'le5le',
+    username: 'le5le'
   };
 
   materials = {
@@ -84,17 +87,17 @@ export default class Home extends Vue {
     iconUrls: ['http://at.alicdn.com/t/font_1331132_g7tv7fmj6c9.css'],
     uploadUrl: '/api/file',
     uploadHeaders: {
-      Authorization: 'your token',
+      Authorization: 'your token'
     },
     uploadParams: {
-      mydata: 1,
-    },
+      mydata: 1
+    }
   };
 
   data: any = {
     websocket: '',
     mqttUrl: '',
-    component: !!this.$route.query.component,
+    component: !!this.$route.query.component
   };
 
   created() {
@@ -110,6 +113,16 @@ export default class Home extends Vue {
     } else {
     }
   }
+
+  visible = false; // 对话框是否可见
+
+  mounted() {
+    console.log('mounted', window.topology);
+    window.topology.on('showDialog', (e: any) => {
+      console.log('showDialog', e);
+      this.visible = true;
+    });
+  }
   group(arr: any[], key: string) {
     var map: any = {},
       dest = [];
@@ -118,7 +131,7 @@ export default class Home extends Vue {
       if (!map[ai[key]]) {
         dest.push({
           key: ai[key],
-          data: [ai],
+          data: [ai]
         });
         map[ai[key]] = ai;
       } else {
@@ -140,12 +153,12 @@ export default class Home extends Vue {
     if (window.topologyTools) {
       let list = this.group(window.topologyTools, 'class');
       this.materials.system.push(
-        ...list.map((el) => {
+        ...list.map(el => {
           return {
             name: el.key,
             expand: false,
             show: true,
-            list: el.data,
+            list: el.data
           };
         })
       );
@@ -156,7 +169,7 @@ export default class Home extends Vue {
     this.materials.system.push({
       iconUrl: '//at.alicdn.com/t/font_2366205_nnqrrnc9mta.css', // 替换成真实的地址
       show: true,
-      list: [], // 此处留空数组就好，会自动填充
+      list: [] // 此处留空数组就好，会自动填充
     });
     register();
     // 注册后 push 到数组中
@@ -171,12 +184,12 @@ export default class Home extends Vue {
           data: {
             rect: {
               width: 100,
-              height: 400,
+              height: 400
             },
-            name: 'thermometer',
-          },
-        },
-      ],
+            name: 'thermometer'
+          }
+        }
+      ]
     });
     // svg或者png图片资源
     const images = await axios.get('/images');
@@ -188,11 +201,11 @@ export default class Home extends Vue {
           list: item.list.map((ele: any) => {
             return {
               name: ele.name, // hover item 名
-              image: ele.url, // 预览图以及拖出来的效果图
+              image: ele.url // 预览图以及拖出来的效果图
             };
           }),
           show: true,
-          expand: false,
+          expand: false
         };
       })
     );
@@ -230,7 +243,7 @@ export default class Home extends Vue {
         // Do sth. For example:
         this.$router.push({
           path: '/',
-          query: { component: '1' },
+          query: { component: '1' }
         });
         break;
 
@@ -239,7 +252,7 @@ export default class Home extends Vue {
         // Do sth. For example:
         this.$router.push({
           path: '/',
-          query: { id: e.params.id, component: '1' },
+          query: { id: e.params.id, component: '1' }
         });
         break;
 
@@ -262,7 +275,7 @@ export default class Home extends Vue {
         (window as any).topologyData = (window as any).topology.data;
         this.$router.push({
           path: '/preview',
-          query: { id: 'xxx', r: '1' },
+          query: { id: 'xxx', r: '1' }
         });
         break;
       case 'remove-user-component': // 删除用户组件
