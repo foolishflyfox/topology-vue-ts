@@ -21,6 +21,20 @@ export const defalutMaterials: any = [
     show: true,
     list: [
       {
+        name: 'textbox',
+        icon: 't-icon t-lianjie',   // icon 自行修改合适的图标
+        id: -1,
+        data: {
+          rect: {
+            width: 100,
+            height: 100
+          },
+          name: 'textbox',
+          text: '输入框',
+          data: {}
+        }
+      },
+      {
         name: 'square',
         icon: 't-icon t-rect',
         id: 0,
