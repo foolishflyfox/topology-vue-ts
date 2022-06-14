@@ -9243,10 +9243,10 @@ toidentifier@1.0.0:
   resolved "https://registry.npm.taobao.org/toidentifier/download/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha1-fhvjRw8ed5SLxD2Uo8j013UrpVM=
 
-topology-vue@^0.5.36:
-  version "0.5.36"
-  resolved "https://registry.npmmirror.com/topology-vue/download/topology-vue-0.5.36.tgz#31a2fe742a9afcac0ef1745ed122bfa10c958094"
-  integrity sha512-rAx3eG0zWXG3kcKXbiFBf+COyYcE1zSttTQBHxJn3bqyBKfXCKI/FOydz8ooO/AZv/X0K8z2VT2/WR+weEkjkw==
+topology-vue@0.5.38:
+  version "0.5.38"
+  resolved "https://registry.npmmirror.com/topology-vue/-/topology-vue-0.5.38.tgz#dbb24952d467ba9de80105013d3b933280d7c2e0"
+  integrity sha512-BxO4z9UxEfv5PnawHD3IL6k9uE5ad1xk3aMuy33gpbU+CfuIvTdB9YWGFM1vi/tGLN8NEiwCr7S8qR/J6Xh+3g==
 
 toposort@^1.0.0:
   version "1.0.7"
