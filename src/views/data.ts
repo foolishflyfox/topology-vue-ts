@@ -1,3 +1,4 @@
+// 
 export const defalutMaterialTabs = [
   {
     name: '图纸',
@@ -1255,6 +1256,7 @@ export const iconMenus: any = {
 };
 
 export const userMenus = [
+  // 右上角的用户菜单
   { name: '个人中心', router: '/user/home?h=0' },
   {},
   {
@@ -1263,5 +1265,11 @@ export const userMenus = [
     target: '_blank'
   },
   {},
-  { name: '退出', action: 'logout' }
+  { name: '退出', action: 'logout' },
+  {},
+  { 
+    name: '我的博客', 
+    url: 'http://foolishflyfox.xyz/',
+    target: '_blank'  // '_blank' 表示开启一个新窗口打开网址
+  }
 ];

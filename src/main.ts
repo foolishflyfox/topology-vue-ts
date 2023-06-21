@@ -8,6 +8,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+  // store,
+  render: (h) => h(App),  // 渲染 App 组件
+}).$mount('#app');  // 将 App 组件挂载在 #app 上
